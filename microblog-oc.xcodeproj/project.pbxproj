@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E81CBCBA42855237767C97F /* Pods_microblog_oc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F2F4B409FAE83B7B42AAB1 /* Pods_microblog_oc.framework */; };
 		A5ABFC2A1BDDAF2500DAF9F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC291BDDAF2500DAF9F8 /* main.m */; };
 		A5ABFC2D1BDDAF2500DAF9F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */; };
 		A5ABFC301BDDAF2500DAF9F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC2F1BDDAF2500DAF9F8 /* ViewController.m */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CBD08917369B597F3365765 /* Pods-microblog-oc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-microblog-oc.release.xcconfig"; path = "Pods/Target Support Files/Pods-microblog-oc/Pods-microblog-oc.release.xcconfig"; sourceTree = "<group>"; };
+		17F2F4B409FAE83B7B42AAB1 /* Pods_microblog_oc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_microblog_oc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D50224C087D20AB20AE0FD7 /* Pods-microblog-oc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-microblog-oc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-microblog-oc/Pods-microblog-oc.debug.xcconfig"; sourceTree = "<group>"; };
 		A5ABFC251BDDAF2500DAF9F8 /* microblog-oc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "microblog-oc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABFC291BDDAF2500DAF9F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5ABFC2B1BDDAF2500DAF9F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E81CBCBA42855237767C97F /* Pods_microblog_oc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D971C8D695995FA52BAE3CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D50224C087D20AB20AE0FD7 /* Pods-microblog-oc.debug.xcconfig */,
+				0CBD08917369B597F3365765 /* Pods-microblog-oc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9903D63E165ED63C8E7BA3C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17F2F4B409FAE83B7B42AAB1 /* Pods_microblog_oc.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A5ABFC1C1BDDAF2500DAF9F8 = {
 			isa = PBXGroup;
 			children = (
 				A5ABFC271BDDAF2500DAF9F8 /* microblog-oc */,
 				A5ABFC261BDDAF2500DAF9F8 /* Products */,
+				4D971C8D695995FA52BAE3CB /* Pods */,
+				9903D63E165ED63C8E7BA3C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5ABFC3C1BDDAF2500DAF9F8 /* Build configuration list for PBXNativeTarget "microblog-oc" */;
 			buildPhases = (
+				B5A51D2E2AACF2C5D275F358 /* Check Pods Manifest.lock */,
 				A5ABFC211BDDAF2500DAF9F8 /* Sources */,
 				A5ABFC221BDDAF2500DAF9F8 /* Frameworks */,
 				A5ABFC231BDDAF2500DAF9F8 /* Resources */,
+				0A31E21065F99D58DCCC4916 /* Embed Pods Frameworks */,
+				062AF26FA726BC80BE5961FA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		062AF26FA726BC80BE5961FA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-microblog-oc/Pods-microblog-oc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0A31E21065F99D58DCCC4916 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-microblog-oc/Pods-microblog-oc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5A51D2E2AACF2C5D275F358 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5ABFC211BDDAF2500DAF9F8 /* Sources */ = {
@@ -260,6 +335,7 @@
 		};
 		A5ABFC3D1BDDAF2500DAF9F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D50224C087D20AB20AE0FD7 /* Pods-microblog-oc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "microblog-oc/Info.plist";
@@ -271,6 +347,7 @@
 		};
 		A5ABFC3E1BDDAF2500DAF9F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CBD08917369B597F3365765 /* Pods-microblog-oc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "microblog-oc/Info.plist";
@@ -299,6 +376,7 @@
 				A5ABFC3E1BDDAF2500DAF9F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
