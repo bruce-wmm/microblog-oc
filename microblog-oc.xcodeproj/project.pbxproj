@@ -56,12 +56,14 @@
 		A505A6711BE1D9FB0059061D /* JFWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFWelcomeViewController.m; sourceTree = "<group>"; };
 		A505A6731BE1DA090059061D /* JFOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFOAuthViewController.h; sourceTree = "<group>"; };
 		A505A6741BE1DA090059061D /* JFOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFOAuthViewController.m; sourceTree = "<group>"; };
+		A505A6761BE1DB000059061D /* JFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFCommon.h; path = ../JFCommon.h; sourceTree = "<group>"; };
+		A505A6791BE1DB1E0059061D /* microblog.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = microblog.pch; path = ../microblog.pch; sourceTree = "<group>"; };
 		A5ABFC251BDDAF2500DAF9F8 /* microblog-oc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "microblog-oc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABFC291BDDAF2500DAF9F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A5ABFC2B1BDDAF2500DAF9F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A5ABFC2B1BDDAF2500DAF9F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		A5ABFC341BDDAF2500DAF9F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		A5ABFC391BDDAF2500DAF9F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5ABFC391BDDAF2500DAF9F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,18 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		A505A67B1BE1DEE20059061D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABFC391BDDAF2500DAF9F8 /* Info.plist */,
+				A5ABFC2B1BDDAF2500DAF9F8 /* AppDelegate.h */,
+				A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */,
+				A505A6761BE1DB000059061D /* JFCommon.h */,
+				A505A6791BE1DB1E0059061D /* microblog.pch */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		A5ABFC1C1BDDAF2500DAF9F8 = {
 			isa = PBXGroup;
 			children = (
@@ -123,11 +137,9 @@
 		A5ABFC271BDDAF2500DAF9F8 /* microblog-oc */ = {
 			isa = PBXGroup;
 			children = (
+				A505A67B1BE1DEE20059061D /* Other */,
 				A5AED9FC1BDF9AB8007EEF81 /* Resource */,
 				A5AED9D21BDF9AB8007EEF81 /* Classes */,
-				A5ABFC391BDDAF2500DAF9F8 /* Info.plist */,
-				A5ABFC2B1BDDAF2500DAF9F8 /* AppDelegate.h */,
-				A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */,
 				A5ABFC281BDDAF2500DAF9F8 /* Supporting Files */,
 			);
 			path = "microblog-oc";
@@ -728,6 +740,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/microblog-oc/microblog.pch";
 				INFOPLIST_FILE = "microblog-oc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -742,6 +755,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/microblog-oc/microblog.pch";
 				INFOPLIST_FILE = "microblog-oc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
