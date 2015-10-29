@@ -29,7 +29,22 @@ typedef void (^NetFinishedCallBack)(id result, NSError *error);
  *
  *  @return 返回授权页面URL
  */
-+ (NSURL *)getOAuthUrl;
+- (NSURL *)getOAuthUrl;
+
+/**
+ *  加载access_token
+ *
+ *  @param code     code码
+ *  @param finished 完成回调block
+ */
+- (void)loadAccessToken:(NSString *)code finished:(NetFinishedCallBack)finished;
+
+/**
+ *  加载用户数据
+ *
+ *  @param finished 完成回调block
+ */
+- (void)loadUserInfo:(NetFinishedCallBack)finished;
 
 /**
  *  发送GET请求

@@ -21,9 +21,11 @@
 		A505A66F1BE1D9EA0059061D /* JFNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505A66E1BE1D9EA0059061D /* JFNewFeatureViewController.m */; };
 		A505A6721BE1D9FB0059061D /* JFWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505A6711BE1D9FB0059061D /* JFWelcomeViewController.m */; };
 		A505A6751BE1DA090059061D /* JFOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505A6741BE1DA090059061D /* JFOAuthViewController.m */; };
+		A5A025F31BE277480030A430 /* UIApplication+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A025F21BE277480030A430 /* UIApplication+Extension.m */; };
 		A5ABFC2A1BDDAF2500DAF9F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC291BDDAF2500DAF9F8 /* main.m */; };
 		A5ABFC2D1BDDAF2500DAF9F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */; };
 		A5ABFC351BDDAF2500DAF9F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5ABFC341BDDAF2500DAF9F8 /* Assets.xcassets */; };
+		A5BEE20F1BE23CA20029A3DC /* JFHomeVisitorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BEE20E1BE23CA20029A3DC /* JFHomeVisitorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,12 +60,16 @@
 		A505A6741BE1DA090059061D /* JFOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFOAuthViewController.m; sourceTree = "<group>"; };
 		A505A6761BE1DB000059061D /* JFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFCommon.h; path = ../JFCommon.h; sourceTree = "<group>"; };
 		A505A6791BE1DB1E0059061D /* microblog.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = microblog.pch; path = ../microblog.pch; sourceTree = "<group>"; };
+		A5A025F11BE277480030A430 /* UIApplication+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Extension.h"; sourceTree = "<group>"; };
+		A5A025F21BE277480030A430 /* UIApplication+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Extension.m"; sourceTree = "<group>"; };
 		A5ABFC251BDDAF2500DAF9F8 /* microblog-oc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "microblog-oc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABFC291BDDAF2500DAF9F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5ABFC2B1BDDAF2500DAF9F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
 		A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		A5ABFC341BDDAF2500DAF9F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A5ABFC391BDDAF2500DAF9F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		A5BEE20D1BE23CA20029A3DC /* JFHomeVisitorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFHomeVisitorView.h; sourceTree = "<group>"; };
+		A5BEE20E1BE23CA20029A3DC /* JFHomeVisitorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFHomeVisitorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,8 @@
 		A5AED9D31BDF9AB8007EEF81 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A5A025F11BE277480030A430 /* UIApplication+Extension.h */,
+				A5A025F21BE277480030A430 /* UIApplication+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -332,6 +340,8 @@
 		A5AED9E61BDF9AB8007EEF81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A5BEE20D1BE23CA20029A3DC /* JFHomeVisitorView.h */,
+				A5BEE20E1BE23CA20029A3DC /* JFHomeVisitorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -635,10 +645,12 @@
 			files = (
 				A505A6571BE1D9310059061D /* JFTabBarController.m in Sources */,
 				A505A66C1BE1D9CB0059061D /* JFComposeViewController.m in Sources */,
+				A5BEE20F1BE23CA20029A3DC /* JFHomeVisitorView.m in Sources */,
 				A5ABFC2D1BDDAF2500DAF9F8 /* AppDelegate.m in Sources */,
 				A505A6541BE1D90A0059061D /* JFHTTPTools.m in Sources */,
 				A505A6691BE1D9BA0059061D /* JFCenterViewController.m in Sources */,
 				A505A66F1BE1D9EA0059061D /* JFNewFeatureViewController.m in Sources */,
+				A5A025F31BE277480030A430 /* UIApplication+Extension.m in Sources */,
 				A505A65A1BE1D9480059061D /* JFNavigationController.m in Sources */,
 				A505A65D1BE1D97F0059061D /* JFHomeTableViewController.m in Sources */,
 				A505A6631BE1D9A00059061D /* JFDiscoverTableViewController.m in Sources */,

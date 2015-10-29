@@ -55,5 +55,15 @@
  */
 + (instancetype)shareUserAccount;
 
+/**
+ *  保存用户信息
+ */
+- (void)saveUserInfoWithDictionary:(NSDictionary *)dict;
 
+/**
+ *  加载用户信息
+ *
+ *  @param error 错误回调
+ */
+- (void)loadUserInfo:(void (^)(NSError *error))error;
 @end

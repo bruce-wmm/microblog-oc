@@ -31,6 +31,45 @@
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
     return [super allocWithZone:zone];
 }
+- (instancetype)init {
+    if (self = [super init]) {
+        // 判断账号是否过期
+        if ([self.expiresDate compare:[NSDate dateWithTimeIntervalSinceNow:self.expires_in]] == NSOrderedAscending) {
+            NSLog(@"账号过期");
+        }
+    }
+    return self;
+}
+
+/**
+ *  加载用户信息
+ *
+ *  @param error 错误回调
+ */
+- (void)loadUserInfo:(void (^)(NSError *loadError))loadError {
+    [[JFHTTPTools shareHTTPTools] loadUserInfo:^(NSDictionary *result, NSError *error) {
+        
+        if (result == nil && error != nil) {
+            NSLog(@"请求失败");
+            return;
+        }
+        
+        // 为对象属性赋值
+        self.name = result[@"name"];
+        self.avatar_large = result[@"avatar_large"];
+        
+        // 将对象进行归档
+        if ([NSKeyedArchiver archiveRootObject:self toFile:kUserInfoPath]) {
+            NSLog(@"loadUserInfo - 归档成功");
+        } else {
+            NSLog(@"loadUserInfo - 归档失败");
+        }
+        
+        // 回调
+        loadError(error);
+        
+    }];
+}
 
 #pragma mark - 保存信息
 /**
@@ -42,11 +81,12 @@
     
     // 将对象进行归档
     if ([NSKeyedArchiver archiveRootObject:self toFile:kUserInfoPath]) {
-        NSLog(@"归档成功");
+        NSLog(@"saveUserInfoWithDictionary - 归档成功");
     } else {
-        NSLog(@"归档失败");
+        NSLog(@"saveUserInfoWithDictionary - 归档失败");
     }
 }
+
 // 重新这个方法，防止kvc赋值时key与对象属性不能匹配问题
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {}
 
@@ -97,6 +137,13 @@
     } else {
         return NO;
     }
+}
+
+/**
+ *  重新NSLog输出信息
+ */
+- (NSString *)description {
+    return [NSString stringWithFormat:@"name=%@,avatar_large=%@,access_token=%@,remind_in=%@,uid=%@,expires_in=%lf",self.name,self.avatar_large,self.access_token,self.remind_in,self.uid,self.expires_in];
 }
 
 @end

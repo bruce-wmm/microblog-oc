@@ -52,8 +52,52 @@
  *
  *  @return 返回授权页面URL
  */
-+ (NSURL *)getOAuthUrl {
+- (NSURL *)getOAuthUrl {
     return [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",kClient_id,kRedirect_uri]];
+}
+
+#pragma mark - 加载access_token
+/**
+ *  加载access_token
+ *
+ *  @param code     code码
+ *  @param finished 完成回调block
+ */
+- (void)loadAccessToken:(NSString *)code finished:(NetFinishedCallBack)finished {
+    
+    // 请求URL字符串
+    NSString *requestString = @"oauth2/access_token";
+    
+    // 请求参数
+    NSDictionary *parameters = @{
+                                 @"client_id" : kClient_id,
+                                 @"client_secret" : kApp_secret,
+                                 @"grant_type" : kGrant_type,
+                                 @"code" : code,
+                                 @"redirect_uri" : kRedirect_uri
+                                 };
+    // 发送请求并回调结果给调用者
+    [self POST:requestString parameters:parameters finished:finished];
+}
+
+/**
+ *  加载用户数据
+ *
+ *  @param finished 完成回调block
+ */
+- (void)loadUserInfo:(NetFinishedCallBack)finished {
+    
+    // 请求URL字符串
+    NSString *requestString = @"2/users/show.json";
+    
+    // 请求参数
+    NSDictionary *parameters = @{
+                                 @"access_token" : [JFUserAccount shareUserAccount].access_token,
+                                 @"uid" : [JFUserAccount shareUserAccount].uid
+                                 };
+    // 发送请求并回调结果给调用者
+    [self GET:requestString parameters:parameters finished:finished];
+    
 }
 
 #pragma mark - 封装GET、POST请求
@@ -65,7 +109,11 @@
  *  @param finished   完成回调block
  */
 - (void)GET:(NSString *)URLString parameters:(id)parameters finished:(NetFinishedCallBack)finished {
-    
+    [self.afnManager GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        finished(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        finished(nil, error);
+    }];
 }
 
 /**
@@ -76,7 +124,11 @@
  *  @param finished   完成回调block
  */
 - (void)POST:(NSString *)URLString parameters:(id)parameters finished:(NetFinishedCallBack)finished {
-    
+    [self.afnManager POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        finished(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        finished(nil, error);
+    }];
 }
 
 @end

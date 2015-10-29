@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "JFTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -36,6 +37,7 @@
  */
 - (void)chooseViewController {
     
+    self.window.rootViewController = [[JFTabBarController alloc] init];
     
 }
 
