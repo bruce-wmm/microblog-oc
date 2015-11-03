@@ -31,11 +31,6 @@
     // 加载授权请求界面
     [self.webView loadRequest:[NSURLRequest requestWithURL: [[JFHTTPTools shareHTTPTools] getOAuthUrl]]];
     
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
     // 添加导航栏按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"自动填充密码" style:UIBarButtonItemStylePlain target:self action:@selector(autoEditPassword)];
@@ -53,18 +48,27 @@
  *  自动输入资料
  */
 - (void)autoEditPassword {
-    [self.webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('userId').value = 'micfeng@hotmail.com';document.getElementById('passwd').value = '这里是密码';"];
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('userId').value = 'micfeng@hotmail.com';document.getElementById('passwd').value = 'feng100.0918';"];
 }
 
 #pragma mark - UIWebViewDelegate
+/**
+ *  开始加载
+ */
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [SVProgressHUD showWithStatus:@"正在加载" maskType:SVProgressHUDMaskTypeBlack];
 }
 
+/**
+ *  加载完成
+ */
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [SVProgressHUD dismiss];
 }
 
+/**
+ *  是否要加载网络请求
+ */
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     // 获取完整请求字符串
@@ -76,26 +80,28 @@
     }
     
     // 是回调地址再判断是点击了取消还是授权
+    // 获取请求参数
     NSString *queryString = request.URL.query;
+    // 确认授权的参数前缀一定是 code=
     NSString *preString = @"code=";
     
-    // 点击了取消
+    // 如果参数前缀不是 code= 点击了取消
     if (![queryString hasPrefix:preString]) {
         [self close];
         return NO;
     }
     
-    // 获取code
+    // 截取code
     NSString *code = [queryString substringFromIndex:preString.length];
     
     // 根据code获取access_token
     [[JFHTTPTools shareHTTPTools] loadAccessToken:code finished:^(NSDictionary *result, NSError *error) {
         if (result == nil && error != nil) {
             // 获取失败
-            [SVProgressHUD showWithStatus:@"获取access_token失败" maskType:SVProgressHUDMaskTypeBlack];
-            return;
+            [SVProgressHUD showWithStatus:@"授权失败" maskType:SVProgressHUDMaskTypeBlack];
+            [self close];
         } else {
-            // 获取access_token成功，先保存用户信息
+            // 获取access_token成功，先归档一次用户账号
             [[JFUserAccount shareUserAccount] saveUserInfoWithDictionary:result];
             
             // 加载用户信息
@@ -103,16 +109,16 @@
                 if (error) {
                     // 获取失败
                     [SVProgressHUD showWithStatus:@"加载用户信息失败" maskType:SVProgressHUDMaskTypeBlack];
-                    return;
+                    // 关闭当前控制器
+                    [self close];
+                } else {
+                    // 加载用户信息成功，进入欢迎页
+                    [UIApplication switchViewController:[[JFWelcomeViewController alloc] init]];
+                    // 关闭当前控制器
+                    [self close];
                 }
-                
-                // 加载用户信息成功，进入欢迎页
-                [UIApplication switchViewController:[[JFWelcomeViewController alloc] init]];
-                // 关闭当前控制器
-                [self close];
             }];
         }
-        
     }];
     
     return NO;

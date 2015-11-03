@@ -21,6 +21,17 @@
 		A505A66F1BE1D9EA0059061D /* JFNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505A66E1BE1D9EA0059061D /* JFNewFeatureViewController.m */; };
 		A505A6721BE1D9FB0059061D /* JFWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505A6711BE1D9FB0059061D /* JFWelcomeViewController.m */; };
 		A505A6751BE1DA090059061D /* JFOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505A6741BE1DA090059061D /* JFOAuthViewController.m */; };
+		A5916C441BE5D20C00B26DE5 /* JFNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5916C431BE5D20C00B26DE5 /* JFNewFeatureCell.m */; };
+		A595391C1BE6ECDB00824BB6 /* JFStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A595391B1BE6ECDB00824BB6 /* JFStatus.m */; };
+		A595391F1BE6ECE600824BB6 /* JFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A595391E1BE6ECE600824BB6 /* JFUser.m */; };
+		A59539291BE6F5CF00824BB6 /* NSObject+NewLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A59539281BE6F5CF00824BB6 /* NSObject+NewLog.m */; };
+		A595392D1BE7149900824BB6 /* JFStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A595392C1BE7149900824BB6 /* JFStatusCell.m */; };
+		A59539301BE714C500824BB6 /* JFForwardStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A595392F1BE714C500824BB6 /* JFForwardStatusCell.m */; };
+		A59539331BE714D600824BB6 /* JFNormalStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59539321BE714D600824BB6 /* JFNormalStatusCell.m */; };
+		A59F48701BE7368A000CD8F0 /* JFTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F486F1BE7368A000CD8F0 /* JFTopView.m */; };
+		A59F48731BE736B5000CD8F0 /* JFPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F48721BE736B5000CD8F0 /* JFPictureView.m */; };
+		A59F48761BE736D3000CD8F0 /* JFBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F48751BE736D3000CD8F0 /* JFBottomView.m */; };
+		A59F48791BE736FB000CD8F0 /* JFPictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F48781BE736FB000CD8F0 /* JFPictureViewCell.m */; };
 		A5A025F31BE277480030A430 /* UIApplication+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A025F21BE277480030A430 /* UIApplication+Extension.m */; };
 		A5ABFC2A1BDDAF2500DAF9F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC291BDDAF2500DAF9F8 /* main.m */; };
 		A5ABFC2D1BDDAF2500DAF9F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5ABFC2C1BDDAF2500DAF9F8 /* AppDelegate.m */; };
@@ -60,6 +71,28 @@
 		A505A6741BE1DA090059061D /* JFOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFOAuthViewController.m; sourceTree = "<group>"; };
 		A505A6761BE1DB000059061D /* JFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFCommon.h; path = ../JFCommon.h; sourceTree = "<group>"; };
 		A505A6791BE1DB1E0059061D /* microblog.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = microblog.pch; path = ../microblog.pch; sourceTree = "<group>"; };
+		A5916C421BE5D20C00B26DE5 /* JFNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFNewFeatureCell.h; sourceTree = "<group>"; };
+		A5916C431BE5D20C00B26DE5 /* JFNewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFNewFeatureCell.m; sourceTree = "<group>"; };
+		A595391A1BE6ECDB00824BB6 /* JFStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFStatus.h; sourceTree = "<group>"; };
+		A595391B1BE6ECDB00824BB6 /* JFStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFStatus.m; sourceTree = "<group>"; };
+		A595391D1BE6ECE600824BB6 /* JFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFUser.h; sourceTree = "<group>"; };
+		A595391E1BE6ECE600824BB6 /* JFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFUser.m; sourceTree = "<group>"; };
+		A59539271BE6F5CF00824BB6 /* NSObject+NewLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NewLog.h"; sourceTree = "<group>"; };
+		A59539281BE6F5CF00824BB6 /* NSObject+NewLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NewLog.m"; sourceTree = "<group>"; };
+		A595392B1BE7149900824BB6 /* JFStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFStatusCell.h; sourceTree = "<group>"; };
+		A595392C1BE7149900824BB6 /* JFStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFStatusCell.m; sourceTree = "<group>"; };
+		A595392E1BE714C500824BB6 /* JFForwardStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFForwardStatusCell.h; sourceTree = "<group>"; };
+		A595392F1BE714C500824BB6 /* JFForwardStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFForwardStatusCell.m; sourceTree = "<group>"; };
+		A59539311BE714D600824BB6 /* JFNormalStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFNormalStatusCell.h; sourceTree = "<group>"; };
+		A59539321BE714D600824BB6 /* JFNormalStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFNormalStatusCell.m; sourceTree = "<group>"; };
+		A59F486E1BE7368A000CD8F0 /* JFTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFTopView.h; sourceTree = "<group>"; };
+		A59F486F1BE7368A000CD8F0 /* JFTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFTopView.m; sourceTree = "<group>"; };
+		A59F48711BE736B5000CD8F0 /* JFPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPictureView.h; sourceTree = "<group>"; };
+		A59F48721BE736B5000CD8F0 /* JFPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPictureView.m; sourceTree = "<group>"; };
+		A59F48741BE736D3000CD8F0 /* JFBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFBottomView.h; sourceTree = "<group>"; };
+		A59F48751BE736D3000CD8F0 /* JFBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBottomView.m; sourceTree = "<group>"; };
+		A59F48771BE736FB000CD8F0 /* JFPictureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPictureViewCell.h; sourceTree = "<group>"; };
+		A59F48781BE736FB000CD8F0 /* JFPictureViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPictureViewCell.m; sourceTree = "<group>"; };
 		A5A025F11BE277480030A430 /* UIApplication+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Extension.h"; sourceTree = "<group>"; };
 		A5A025F21BE277480030A430 /* UIApplication+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Extension.m"; sourceTree = "<group>"; };
 		A5ABFC251BDDAF2500DAF9F8 /* microblog-oc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "microblog-oc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +153,45 @@
 				A505A6791BE1DB1E0059061D /* microblog.pch */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		A59539261BE6F5CF00824BB6 /* nslog */ = {
+			isa = PBXGroup;
+			children = (
+				A59539271BE6F5CF00824BB6 /* NSObject+NewLog.h */,
+				A59539281BE6F5CF00824BB6 /* NSObject+NewLog.m */,
+			);
+			path = nslog;
+			sourceTree = "<group>";
+		};
+		A595392A1BE7145000824BB6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A595392B1BE7149900824BB6 /* JFStatusCell.h */,
+				A595392C1BE7149900824BB6 /* JFStatusCell.m */,
+				A595392E1BE714C500824BB6 /* JFForwardStatusCell.h */,
+				A595392F1BE714C500824BB6 /* JFForwardStatusCell.m */,
+				A59539311BE714D600824BB6 /* JFNormalStatusCell.h */,
+				A59539321BE714D600824BB6 /* JFNormalStatusCell.m */,
+				A59F486E1BE7368A000CD8F0 /* JFTopView.h */,
+				A59F486F1BE7368A000CD8F0 /* JFTopView.m */,
+				A59F48711BE736B5000CD8F0 /* JFPictureView.h */,
+				A59F48721BE736B5000CD8F0 /* JFPictureView.m */,
+				A59F48771BE736FB000CD8F0 /* JFPictureViewCell.h */,
+				A59F48781BE736FB000CD8F0 /* JFPictureViewCell.m */,
+				A59F48741BE736D3000CD8F0 /* JFBottomView.h */,
+				A59F48751BE736D3000CD8F0 /* JFBottomView.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		A59539341BE7161100824BB6 /* Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				A5BEE20D1BE23CA20029A3DC /* JFHomeVisitorView.h */,
+				A5BEE20E1BE23CA20029A3DC /* JFHomeVisitorView.m */,
+			);
+			name = Visitor;
 			sourceTree = "<group>";
 		};
 		A5ABFC1C1BDDAF2500DAF9F8 = {
@@ -183,6 +255,7 @@
 		A5AED9D41BDF9AB8007EEF81 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A59539261BE6F5CF00824BB6 /* nslog */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -192,6 +265,10 @@
 			children = (
 				A505A64E1BE1D8A10059061D /* JFUserAccount.h */,
 				A505A64F1BE1D8A10059061D /* JFUserAccount.m */,
+				A595391A1BE6ECDB00824BB6 /* JFStatus.h */,
+				A595391B1BE6ECDB00824BB6 /* JFStatus.m */,
+				A595391D1BE6ECE600824BB6 /* JFUser.h */,
+				A595391E1BE6ECE600824BB6 /* JFUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,8 +417,8 @@
 		A5AED9E61BDF9AB8007EEF81 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A5BEE20D1BE23CA20029A3DC /* JFHomeVisitorView.h */,
-				A5BEE20E1BE23CA20029A3DC /* JFHomeVisitorView.m */,
+				A59539341BE7161100824BB6 /* Visitor */,
+				A595392A1BE7145000824BB6 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +522,8 @@
 		A5AED9F21BDF9AB8007EEF81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A5916C421BE5D20C00B26DE5 /* JFNewFeatureCell.h */,
+				A5916C431BE5D20C00B26DE5 /* JFNewFeatureCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -645,16 +724,27 @@
 			files = (
 				A505A6571BE1D9310059061D /* JFTabBarController.m in Sources */,
 				A505A66C1BE1D9CB0059061D /* JFComposeViewController.m in Sources */,
+				A59539301BE714C500824BB6 /* JFForwardStatusCell.m in Sources */,
+				A59F48731BE736B5000CD8F0 /* JFPictureView.m in Sources */,
+				A595391C1BE6ECDB00824BB6 /* JFStatus.m in Sources */,
+				A59539331BE714D600824BB6 /* JFNormalStatusCell.m in Sources */,
 				A5BEE20F1BE23CA20029A3DC /* JFHomeVisitorView.m in Sources */,
 				A5ABFC2D1BDDAF2500DAF9F8 /* AppDelegate.m in Sources */,
 				A505A6541BE1D90A0059061D /* JFHTTPTools.m in Sources */,
 				A505A6691BE1D9BA0059061D /* JFCenterViewController.m in Sources */,
 				A505A66F1BE1D9EA0059061D /* JFNewFeatureViewController.m in Sources */,
+				A59F48701BE7368A000CD8F0 /* JFTopView.m in Sources */,
+				A5916C441BE5D20C00B26DE5 /* JFNewFeatureCell.m in Sources */,
 				A5A025F31BE277480030A430 /* UIApplication+Extension.m in Sources */,
 				A505A65A1BE1D9480059061D /* JFNavigationController.m in Sources */,
+				A595392D1BE7149900824BB6 /* JFStatusCell.m in Sources */,
 				A505A65D1BE1D97F0059061D /* JFHomeTableViewController.m in Sources */,
+				A59F48791BE736FB000CD8F0 /* JFPictureViewCell.m in Sources */,
 				A505A6631BE1D9A00059061D /* JFDiscoverTableViewController.m in Sources */,
+				A59F48761BE736D3000CD8F0 /* JFBottomView.m in Sources */,
 				A505A6601BE1D98F0059061D /* JFMessageTableViewController.m in Sources */,
+				A59539291BE6F5CF00824BB6 /* NSObject+NewLog.m in Sources */,
+				A595391F1BE6ECE600824BB6 /* JFUser.m in Sources */,
 				A505A6501BE1D8A10059061D /* JFUserAccount.m in Sources */,
 				A5ABFC2A1BDDAF2500DAF9F8 /* main.m in Sources */,
 				A505A6661BE1D9AC0059061D /* JFProfileTableViewController.m in Sources */,

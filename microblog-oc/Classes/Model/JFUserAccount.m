@@ -7,6 +7,7 @@
 //
 
 #import "JFUserAccount.h"
+#import "MJExtension.h"
 
 @implementation JFUserAccount
 
@@ -23,7 +24,10 @@
         // 从沙盒获取用户数据，如果获取成功则赋值给单例对象
         id userInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:kUserInfoPath];
         if (userInfo) {
+            NSLog(@"解档成功了");
             instance = userInfo;
+        } else {
+            NSLog(@"解档失败了");
         }
     });
     return instance;
@@ -35,7 +39,7 @@
     if (self = [super init]) {
         // 判断账号是否过期
         if ([self.expiresDate compare:[NSDate dateWithTimeIntervalSinceNow:self.expires_in]] == NSOrderedAscending) {
-            NSLog(@"账号过期");
+            NSLog(@"账号过期了");
         }
     }
     return self;
@@ -49,8 +53,9 @@
 - (void)loadUserInfo:(void (^)(NSError *loadError))loadError {
     [[JFHTTPTools shareHTTPTools] loadUserInfo:^(NSDictionary *result, NSError *error) {
         
+        // 判断是否出错
         if (result == nil && error != nil) {
-            NSLog(@"请求失败");
+            loadError(error);
             return;
         }
         
@@ -65,9 +70,7 @@
             NSLog(@"loadUserInfo - 归档失败");
         }
         
-        // 回调
-        loadError(error);
-        
+        loadError(nil);
     }];
 }
 
@@ -102,6 +105,7 @@
     [aCoder encodeObject:self.uid forKey:@"uid"];
     [aCoder encodeDouble:self.expires_in forKey:@"expires_in"];
 }
+
 /**
  *  解档
  */
@@ -129,6 +133,16 @@
 }
 
 /**
+ *  重写access_token的set方法为auth
+ */
+- (void)setAccess_token:(NSString *)access_token {
+    _access_token = access_token;
+    
+    // 给auth设置值
+    self.auth = YES;
+}
+
+/**
  *  重写授权判断的get方法，根据access_token是否有值来确定是否已授权
  */
 - (BOOL)isAuth {
@@ -137,13 +151,6 @@
     } else {
         return NO;
     }
-}
-
-/**
- *  重新NSLog输出信息
- */
-- (NSString *)description {
-    return [NSString stringWithFormat:@"name=%@,avatar_large=%@,access_token=%@,remind_in=%@,uid=%@,expires_in=%lf",self.name,self.avatar_large,self.access_token,self.remind_in,self.uid,self.expires_in];
 }
 
 @end

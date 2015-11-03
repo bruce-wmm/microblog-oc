@@ -19,6 +19,6 @@
 #import "SVProgressHUD.h"
 #import "JFUserAccount.h"
 #import "JFHTTPTools.h"
-
+#import "UIImageView+WebCache.h"
 
 #endif /* microblog_pch */

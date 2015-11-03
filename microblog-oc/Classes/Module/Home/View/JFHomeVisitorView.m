@@ -94,7 +94,7 @@
         }
         return [RACSignal empty];
     }];
-    
+
     // 开始旋转
     [self startRotation];
 }

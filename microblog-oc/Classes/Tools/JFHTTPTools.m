@@ -12,7 +12,7 @@
 @interface JFHTTPTools ()
 
 /**
- *  AFN会话管理者
+ *  AFN
  */
 @property (nonatomic, strong) AFHTTPSessionManager *afnManager;
 
@@ -35,16 +35,6 @@
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
     return [super allocWithZone:zone];
 }
-/**
- *  创建JFHTTPTools单例的同时初始化AFN会话管理者
- */
-- (instancetype)init {
-    if (self = [super init]) {
-        self.afnManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.weibo.com/"]];
-        self.afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", nil];
-    }
-    return self;
-}
 
 #pragma mark - 授权用户的url
 /**
@@ -63,7 +53,7 @@
  *  @param code     code码
  *  @param finished 完成回调block
  */
-- (void)loadAccessToken:(NSString *)code finished:(NetFinishedCallBack)finished {
+- (void)loadAccessToken:(NSString *)code finished:(NetworkFinishedCallBack)finished {
     
     // 请求URL字符串
     NSString *requestString = @"oauth2/access_token";
@@ -73,19 +63,20 @@
                                  @"client_id" : kClient_id,
                                  @"client_secret" : kApp_secret,
                                  @"grant_type" : kGrant_type,
-                                 @"code" : code,
-                                 @"redirect_uri" : kRedirect_uri
+                                 @"redirect_uri" : kRedirect_uri,
+                                 @"code" : code
                                  };
-    // 发送请求并回调结果给调用者
+    // 发送POST请求
     [self POST:requestString parameters:parameters finished:finished];
 }
 
+#pragma mark - 加载用户数据
 /**
  *  加载用户数据
  *
  *  @param finished 完成回调block
  */
-- (void)loadUserInfo:(NetFinishedCallBack)finished {
+- (void)loadUserInfo:(NetworkFinishedCallBack)finished {
     
     // 请求URL字符串
     NSString *requestString = @"2/users/show.json";
@@ -95,7 +86,27 @@
                                  @"access_token" : [JFUserAccount shareUserAccount].access_token,
                                  @"uid" : [JFUserAccount shareUserAccount].uid
                                  };
-    // 发送请求并回调结果给调用者
+    // 发送GET请求
+    [self GET:requestString parameters:parameters finished:finished];
+    
+}
+
+#pragma mark - 加载微博数据
+/**
+ *  加载用户数据
+ *
+ *  @param finished 完成回调block
+ */
+- (void)loadStatus:(NetworkFinishedCallBack)finished {
+    
+    // 请求URL字符串
+    NSString *requestString = @"2/statuses/home_timeline.json";
+    
+    // 请求参数
+    NSDictionary *parameters = @{
+                                 @"access_token" : [JFUserAccount shareUserAccount].access_token,
+                                 };
+    // 发送GET请求
     [self GET:requestString parameters:parameters finished:finished];
     
 }
@@ -108,7 +119,7 @@
  *  @param parameters 请求参数
  *  @param finished   完成回调block
  */
-- (void)GET:(NSString *)URLString parameters:(id)parameters finished:(NetFinishedCallBack)finished {
+- (void)GET:(NSString *)URLString parameters:(id)parameters finished:(NetworkFinishedCallBack)finished {
     [self.afnManager GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         finished(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
@@ -123,12 +134,22 @@
  *  @param parameters 请求参数
  *  @param finished   完成回调block
  */
-- (void)POST:(NSString *)URLString parameters:(id)parameters finished:(NetFinishedCallBack)finished {
+- (void)POST:(NSString *)URLString parameters:(id)parameters finished:(NetworkFinishedCallBack)finished {
     [self.afnManager POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         finished(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         finished(nil, error);
     }];
+}
+
+#pragma mark - setters and getters or 懒加载
+- (AFHTTPSessionManager *)afnManager {
+    if (!_afnManager) {
+        // 初始化AFN
+        _afnManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.weibo.com/"]];
+        _afnManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", nil];
+    }
+    return _afnManager;
 }
 
 @end

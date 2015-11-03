@@ -15,7 +15,7 @@
  *  @param result 请求返回结果
  *  @param error  请求错误
  */
-typedef void (^NetFinishedCallBack)(id result, NSError *error);
+typedef void (^NetworkFinishedCallBack)(id result, NSError *error);
 
 @interface JFHTTPTools : NSObject
 
@@ -37,14 +37,21 @@ typedef void (^NetFinishedCallBack)(id result, NSError *error);
  *  @param code     code码
  *  @param finished 完成回调block
  */
-- (void)loadAccessToken:(NSString *)code finished:(NetFinishedCallBack)finished;
+- (void)loadAccessToken:(NSString *)code finished:(NetworkFinishedCallBack)finished;
 
 /**
  *  加载用户数据
  *
  *  @param finished 完成回调block
  */
-- (void)loadUserInfo:(NetFinishedCallBack)finished;
+- (void)loadUserInfo:(NetworkFinishedCallBack)finished;
+
+/**
+ *  加载微博数据
+ *
+ *  @param finished 完成回调block
+ */
+- (void)loadStatus:(NetworkFinishedCallBack)finished;
 
 /**
  *  发送GET请求
@@ -53,7 +60,7 @@ typedef void (^NetFinishedCallBack)(id result, NSError *error);
  *  @param parameters 请求参数
  *  @param finished   完成回调block
  */
-- (void)GET:(NSString *)URLString parameters:(id)parameters finished:(NetFinishedCallBack)finished;
+- (void)GET:(NSString *)URLString parameters:(id)parameters finished:(NetworkFinishedCallBack)finished;
 
 /**
  *  发送POST请求
@@ -62,6 +69,6 @@ typedef void (^NetFinishedCallBack)(id result, NSError *error);
  *  @param parameters 请求参数
  *  @param finished   完成回调block
  */
-- (void)POST:(NSString *)URLString parameters:(id)parameters finished:(NetFinishedCallBack)finished;
+- (void)POST:(NSString *)URLString parameters:(id)parameters finished:(NetworkFinishedCallBack)finished;
 
 @end
