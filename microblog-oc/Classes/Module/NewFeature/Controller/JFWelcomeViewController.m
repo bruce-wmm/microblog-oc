@@ -54,7 +54,7 @@
     
     // 更新约束
     [self.iconView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-(kScreenH - 160));
+        make.bottom.mas_equalTo(-(SCREEN_HEIGHT - 160));
     }];
     
     [UIView animateWithDuration:1.0 delay:0.1 usingSpringWithDamping:0.6 initialSpringVelocity:5 options:0 animations:^{

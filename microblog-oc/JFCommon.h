@@ -22,19 +22,19 @@
 /**
  *  屏幕宽度
  */
-#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
 /**
  *  屏幕高度
  */
-#define kScreenH [UIScreen mainScreen].bounds.size.height
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 /**
  *  微博cell子控件各种统一边距
  */
-#define kStatusCellMargin 12
+#define STATUS_CELL_MARGIN 12
 
 /**
  *  配图每个cell的默认宽、高
  */
-#define itemWith (kScreenW - 44) / 3
+#define ITEM_WIDTH (SCREEN_WIDTH - 44) / 3

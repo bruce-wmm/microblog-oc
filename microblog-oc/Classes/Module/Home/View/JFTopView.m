@@ -12,6 +12,11 @@
 @interface JFTopView ()
 
 /**
+ *  顶部分割线view
+ */
+@property (nonatomic, strong) UIView *topLineView;
+
+/**
  *  头像
  */
 @property (nonatomic, strong) UIImageView *iconView;
@@ -58,6 +63,7 @@
 - (void)prepareUI {
     
     // 添加子控件
+    [self addSubview:self.topLineView];
     [self addSubview:self.iconView];
     [self addSubview:self.verifiedView];
     [self addSubview:self.nameLabel];
@@ -66,29 +72,35 @@
     [self addSubview:self.sourceLabel];
     
     // 添加约束
+    [self.topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.mas_equalTo(0);
+        make.height.mas_equalTo(10);
+    }];
+    
     // 头像
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.mas_equalTo(kStatusCellMargin);
+        make.top.equalTo(self.topLineView.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
+        make.left.mas_equalTo(STATUS_CELL_MARGIN);
         make.size.mas_equalTo(CGSizeMake(35, 35));
     }];
     
     // 认证图标
     [self.verifiedView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.iconView.mas_right).mas_offset(-5);
-        make.top.equalTo(self.iconView.mas_bottom).mas_offset(-5);
+        make.left.equalTo(self.iconView.mas_right).mas_offset(-12);
+        make.top.equalTo(self.iconView.mas_bottom).mas_offset(-12);
         make.size.mas_equalTo(CGSizeMake(17, 17));
     }];
     
     // 微博昵称
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.iconView.mas_right).mas_equalTo(kStatusCellMargin);
+        make.left.equalTo(self.iconView.mas_right).mas_equalTo(STATUS_CELL_MARGIN);
         make.top.equalTo(self.iconView.mas_top);
     }];
     
     // 会员等级
     [self.mbrankView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.nameLabel.mas_centerY);
-        make.left.equalTo(self.nameLabel.mas_right).mas_offset(kStatusCellMargin);
+        make.left.equalTo(self.nameLabel.mas_right).mas_offset(STATUS_CELL_MARGIN);
         make.size.mas_equalTo(CGSizeMake(14, 14));
     }];
     
@@ -100,7 +112,7 @@
     
     // 微博来源
     [self.sourceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.timeLabel.mas_right).mas_offset(kStatusCellMargin);
+        make.left.equalTo(self.timeLabel.mas_right).mas_offset(STATUS_CELL_MARGIN);
         make.bottom.equalTo(self.timeLabel.mas_bottom);
     }];
     
@@ -133,6 +145,18 @@
 }
 
 #pragma mark - setters and getters or 懒加载
+
+/**
+ *  顶部分割线
+ */
+- (UIView *)topLineView {
+    if (!_topLineView) {
+        _topLineView = [[UIView alloc] init];
+        _topLineView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:0.8];
+    }
+    return _topLineView;
+}
+
 /**
  *  头像
  */

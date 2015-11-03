@@ -124,7 +124,7 @@ static NSString * const forwardCell = @"forwardCell";
     JFStatus *status = self.statuses[indexPath.row];
     
     // 判断是否是转发微博，创建不同cell
-    JFStatusCell *cell =  [tableView dequeueReusableCellWithIdentifier:status.retweeted_status ? forwardCell : normalCell forIndexPath:indexPath];
+    JFStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:status.retweeted_status ? forwardCell : normalCell forIndexPath:indexPath];
     
     cell.status = status;
     

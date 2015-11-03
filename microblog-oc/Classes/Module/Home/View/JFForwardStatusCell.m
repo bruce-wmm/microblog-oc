@@ -29,38 +29,38 @@
     
     // 微博文本
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.topView.mas_bottom).mas_offset(kStatusCellMargin);
-        make.left.mas_equalTo(kStatusCellMargin);
-        make.width.mas_equalTo(kScreenW - kStatusCellMargin * 2);
+        make.top.equalTo(self.topView.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
+        make.left.mas_equalTo(STATUS_CELL_MARGIN);
+        make.width.mas_equalTo(SCREEN_WIDTH - STATUS_CELL_MARGIN * 2);
     }];
     
     // 转发微博背景
     [self.bgButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel.mas_bottom).mas_offset(kStatusCellMargin);
+        make.top.equalTo(self.contentLabel.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
         make.left.right.mas_equalTo(0);
         make.bottom.equalTo(self.bottomView.mas_top);
     }];
     
     // 转发微博文本
     [self.forwardLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bgButton.mas_top).mas_offset(kStatusCellMargin);
-        make.left.equalTo(self.bgButton.mas_left).mas_offset(kStatusCellMargin);
-        make.right.equalTo(self.bgButton.mas_right).mas_offset(-kStatusCellMargin);
-        make.width.mas_offset(kScreenW - kStatusCellMargin * 2);
+        make.top.equalTo(self.bgButton.mas_top).mas_offset(STATUS_CELL_MARGIN);
+        make.left.equalTo(self.bgButton.mas_left).mas_offset(STATUS_CELL_MARGIN);
+        make.right.equalTo(self.bgButton.mas_right).mas_offset(-STATUS_CELL_MARGIN);
+        make.width.mas_offset(SCREEN_WIDTH - STATUS_CELL_MARGIN * 2);
     }];
     
     // 转发微博配图
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.forwardLabel.mas_bottom).mas_offset(kStatusCellMargin);
-        make.left.equalTo(self.bgButton.mas_left).mas_offset(kStatusCellMargin);
+        make.top.equalTo(self.forwardLabel.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
+        make.left.equalTo(self.bgButton.mas_left).mas_offset(STATUS_CELL_MARGIN);
         make.size.mas_equalTo(CGSizeZero);
     }];
     
     // 底部视图
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.pictureView.mas_bottom).mas_offset(kStatusCellMargin);
+        make.top.equalTo(self.pictureView.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
         make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(35);
     }];
     
     // 底部固定
@@ -77,9 +77,6 @@
     
     // 转发微博文本
     self.forwardLabel.text = [NSString stringWithFormat:@"%@:%@",self.status.retweeted_status.user.name,self.status.retweeted_status.text];
-    
-    // 这里做子类数据操作
-    [self prepareUI];
     
     // 更新约束
     [self.pictureView mas_updateConstraints:^(MASConstraintMaker *make) {

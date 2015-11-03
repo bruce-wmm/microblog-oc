@@ -25,24 +25,24 @@
     
     // 微博文本
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(kStatusCellMargin);
-        make.right.mas_equalTo(-kStatusCellMargin);
-        make.top.equalTo(self.topView.mas_bottom).mas_offset(kStatusCellMargin);
-        make.width.mas_equalTo(kScreenW - kStatusCellMargin * 2);
+        make.left.mas_equalTo(STATUS_CELL_MARGIN);
+        make.right.mas_equalTo(-STATUS_CELL_MARGIN);
+        make.top.equalTo(self.topView.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
+        make.width.mas_equalTo(SCREEN_WIDTH - STATUS_CELL_MARGIN * 2);
     }];
     
     // 微博配图
     [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel.mas_bottom).mas_offset(kStatusCellMargin);
-        make.left.mas_equalTo(kStatusCellMargin);
+        make.top.equalTo(self.contentLabel.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
+        make.left.mas_equalTo(STATUS_CELL_MARGIN);
         make.size.mas_equalTo(CGSizeZero);
     }];
     
     // 底部视图
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.equalTo(self.pictureView.mas_bottom).mas_offset(kStatusCellMargin);
-        make.height.mas_equalTo(30);
+        make.top.equalTo(self.pictureView.mas_bottom).mas_offset(STATUS_CELL_MARGIN);
+        make.height.mas_equalTo(35);
     }];
     
     // 底部固定
@@ -56,9 +56,6 @@
  */
 - (void)setupData {
     [super setupData];
-    
-    // 这里做子类数据操作
-    [self prepareUI];
     
     // 更新约束
     [self.pictureView mas_updateConstraints:^(MASConstraintMaker *make) {

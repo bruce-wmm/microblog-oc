@@ -10,11 +10,8 @@
 
 @implementation JFStatusCell
 
-/**
- *  使用代码创建cell都会来这个方法，重写这个方法添加UI
- */
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         // 准备UI
         [self prepareUI];
     }

@@ -56,7 +56,7 @@ static NSString * const reuseIdentifier = @"newFeatureCell";
     // 约束按钮
     __weak typeof(self) weakSelf = self;
     [self.enterButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-(kScreenW - 100) * 0.5);
+        make.right.mas_equalTo(-(SCREEN_WIDTH - 100) * 0.5);
         make.bottom.equalTo(weakSelf.view.mas_bottom).mas_offset(-200);
         make.size.mas_equalTo(CGSizeMake(100, 30));
     }];
@@ -87,18 +87,18 @@ static NSString * const reuseIdentifier = @"newFeatureCell";
 
 // 根据偏移量设置按钮出现
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.x >= kScreenW * 3) {
+    if (scrollView.contentOffset.x >= SCREEN_WIDTH * 3) {
         [UIView animateWithDuration:1.0 delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:5 options:0 animations:^{
             self.enterButton.transform = CGAffineTransformMakeScale(1.5, 1.5);
             self.enterButton.alpha = 1;
         } completion:^(BOOL finished) {
             
         }];
-    } else if (scrollView.contentOffset.x > kScreenW * 2) {
+    } else if (scrollView.contentOffset.x > SCREEN_WIDTH * 2) {
         [self.enterButton mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-(scrollView.contentOffset.x - kScreenW * 2 - (kScreenW + 100) * 0.5));
+            make.right.mas_equalTo(-(scrollView.contentOffset.x - SCREEN_WIDTH * 2 - (SCREEN_WIDTH + 100) * 0.5));
         }];
-    } else if (scrollView.contentOffset.x <= kScreenW * 2) {
+    } else if (scrollView.contentOffset.x <= SCREEN_WIDTH * 2) {
         [UIView animateWithDuration:1.0 delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:5 options:0 animations:^{
             self.enterButton.transform = CGAffineTransformIdentity;
             self.enterButton.alpha = 0;
@@ -112,7 +112,7 @@ static NSString * const reuseIdentifier = @"newFeatureCell";
 - (UICollectionViewFlowLayout *)layout {
     if (!_layout) {
         _layout = [[UICollectionViewFlowLayout alloc] init];
-        _layout.itemSize = CGSizeMake(kScreenW, kScreenH);
+        _layout.itemSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
         _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         _layout.minimumLineSpacing = 0;
         _layout.minimumInteritemSpacing = 0;

@@ -60,7 +60,7 @@ static NSString * const identifier = @"pictureCell";
  */
 - (CGSize)calculateSize {
     
-    self.layout.itemSize = CGSizeMake(itemWith, itemWith);
+    self.layout.itemSize = CGSizeMake(ITEM_WIDTH, ITEM_WIDTH);
     self.layout.minimumLineSpacing = 0;
     self.layout.minimumInteritemSpacing = 0;
     
@@ -87,22 +87,22 @@ static NSString * const identifier = @"pictureCell";
     // 根据图片数量返回尺寸
     switch (count) {
         case 2: {
-            return CGSizeMake(itemWith * 2 + margin, itemWith);
+            return CGSizeMake(ITEM_WIDTH * 2 + margin, ITEM_WIDTH);
         }
         case 3: {
-            return CGSizeMake(itemWith * 3 + 2 * margin, itemWith);
+            return CGSizeMake(ITEM_WIDTH * 3 + 2 * margin, ITEM_WIDTH);
         }
         case 4: {
-            return CGSizeMake(itemWith * 2 + margin, itemWith * 2 + margin);
+            return CGSizeMake(ITEM_WIDTH * 2 + margin, ITEM_WIDTH * 2 + margin);
         }
         case 5:
         case 6: {
-            return CGSizeMake(itemWith * 3 + 2 * margin, itemWith * 2 + margin);
+            return CGSizeMake(ITEM_WIDTH * 3 + 2 * margin, ITEM_WIDTH * 2 + margin);
         }
         case 7:
         case 8:
         case 9: {
-            return CGSizeMake(itemWith * 3 + 2 * margin, itemWith * 3 + 2 * margin);
+            return CGSizeMake(ITEM_WIDTH * 3 + 2 * margin, ITEM_WIDTH * 3 + 2 * margin);
         }
     }
     return CGSizeZero;
