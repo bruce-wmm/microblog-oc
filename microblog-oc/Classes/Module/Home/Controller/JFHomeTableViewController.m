@@ -58,8 +58,10 @@ static NSString * const forwardCell = @"forwardCell";
  */
 - (void)chooseDefaultView {
     if ([JFUserAccount shareUserAccount].isAuth) {
+        
         [super loadView];
     } else {
+        
         JFHomeVisitorView *homeVisitor = [[JFHomeVisitorView alloc] init];
         homeVisitor.delegateSignal = [RACSubject subject];
         [homeVisitor.delegateSignal subscribeNext:^(id x) {
@@ -67,7 +69,6 @@ static NSString * const forwardCell = @"forwardCell";
             [self presentViewController:[[JFNavigationController alloc] initWithRootViewController:[[JFOAuthViewController alloc] init]] animated:YES completion:nil];
         }];
         self.view = homeVisitor;
-        
     }
 }
 
@@ -105,7 +106,6 @@ static NSString * const forwardCell = @"forwardCell";
     }];
 }
 
-
 #pragma mark - Table view data source
 
 /**
@@ -138,14 +138,18 @@ static NSString * const forwardCell = @"forwardCell";
     
     // 获取当前cell的微博模型
     JFStatus *status = self.statuses[indexPath.row];
-    
+
     // 获取当前cell
     JFStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:status.retweeted_status ? forwardCell : normalCell];
     
-    // 重新布局当前cell并计算cell高度
-    CGFloat rowHeight = [cell rowHeight:status];
+    // 判断是否有缓存cell高度
+    if (status.rowHeight <= 0) {
+        // 没有缓存，就先计算并缓存
+        status.rowHeight = [cell rowHeight:status];
+    }
     
-    return rowHeight;
+    // 返回缓存的cell高度
+    return status.rowHeight;
 }
 
 /**

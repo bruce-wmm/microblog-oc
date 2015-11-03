@@ -13,6 +13,11 @@
 @interface JFStatus : NSObject
 
 /**
+ *  cell高度
+ */
+@property (nonatomic, assign) CGFloat rowHeight;
+
+/**
  *  转发微博
  */
 @property (nonatomic, strong) JFStatus *retweeted_status;
